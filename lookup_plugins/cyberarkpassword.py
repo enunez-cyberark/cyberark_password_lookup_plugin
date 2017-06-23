@@ -14,11 +14,11 @@
 #  Args:
 #      AppID (str): Defines the unique ID of the application that is issuing the password request.
 #      Query (str): Describes the filter criteria for the password retrieval.
-#      Output (str): Specifies the desired output fields separated by commas. They could be: Password, PassProps.<property>, PasswordChangeInProcess
+#      Output (str): Specifies the desired output fields separated by commas. They could be: Password, PassProps.<property>, PasswordChangeInProgress
 #      Optionally, you can specify extra parameters recognized by clipasswordsdk (like FailRequestOnPasswordChange, Queryformat, Reason, etc.)
 #
 #  Returns:
-#      dict: A dictionary with 'password' as key for the credential, passprops.<property>, passwordchangeinprocess
+#      dict: A dictionary with 'password' as key for the credential, passprops.<property>, passwordchangeinprogress
 #            If the specified property does not exist for this password, the value <na> will be returned for this property.
 #            If the value of the specified property is empty, <null> will be returned.
 #

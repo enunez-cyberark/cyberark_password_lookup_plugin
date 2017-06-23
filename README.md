@@ -20,14 +20,14 @@ plugin arguments
 **Note**: Parameter names AppID, Query, Output are case sensitive.
 - **AppID** (str): Defines the unique ID of the application that is issuing the password request.
 - **Query** (str): Describes the filter criteria for the password retrieval.
-- **Output** (str): Specifies the desired output fields separated by commas. They could be: Password, PassProps.<property>, PasswordChangeInProcess
+- **Output** (str): Specifies the desired output fields separated by commas. They could be: Password, PassProps.<property>, PasswordChangeInProgress
 
 Optionally, you can specify extra parameters recognized by clipasswordsdk (like FailRequestOnPasswordChange, Queryformat, Reason, etc.)
 
 plugin return
 -------------
 
-- **dict**: A dictionary with 'password' as key for the credential, passprops.<property>, passwordchangeinprocess
+- **dict**: A dictionary with 'password' as key for the credential, passprops.<property>, passwordchangeinprogress
 
 If the specified property does not exist for this password, the value <na> will be returned for this property.
 
@@ -46,10 +46,10 @@ Example playbook showing how to retrieve credentials from CyberArk Digital Vault
 ---
 - hosts: localhost
   vars:
-   - password_object: "{{lookup('cyberarkpassword', AppID='app_ansible', Query='safe=CyberArk_Passwords;folder=root;object=AdminPass', Output='Password,PassProps.UserName,PassProps.Address,PasswordChangeInProcess')}}"
+   - password_object: "{{lookup('cyberarkpassword', AppID='app_ansible', Query='safe=CyberArk_Passwords;folder=root;object=AdminPass', Output='Password,PassProps.UserName,PassProps.Address,PasswordChangeInProgress')}}"
 
   tasks:
-   - debug: msg="the value of password is {{password_object.password}}  userName={{password_object.passprops.username}} address={{password_object.passprops.address}} passwordchangeinprocess={{password_object.passwordchangeinprocess}} inventory_hostname={{inventory_hostname}} ansible_hostname={{ansible_hostname}}"
+   - debug: msg="the value of password is {{password_object.password}}  userName={{password_object.passprops.username}} address={{password_object.passprops.address}} passwordchangeinprogress={{password_object.passwordchangeinprogress}} inventory_hostname={{inventory_hostname}} ansible_hostname={{ansible_hostname}}"
 ```
 
 License
